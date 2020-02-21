@@ -1,13 +1,10 @@
-package com.luv2code.springboot.thymeleafdemobran.data;
+package com.luv2code.springboot.thymeleafdemobran.database;
 
-import org.hibernate.annotations.NamedQuery;
 import org.hibernate.annotations.Table;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 @Entity
 @Table(appliesTo = "employee")
