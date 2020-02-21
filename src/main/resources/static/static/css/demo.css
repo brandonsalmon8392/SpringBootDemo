@@ -1,0 +1,98 @@
+.funny{
+    font-size: 10px;
+    font-style: italic;
+}
+
+.tada{
+    font-size: 50px;
+
+    color: aqua;
+    font-style: italic;
+}
+
+.form-center{
+    alignment: center;
+}
+.login-form{
+    width:412px;
+    margin: 10vh auto;
+    background-color: #f3f3f3;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+li {
+  display: inline;
+}
+
+.foot {
+    display : table-row;
+    vertical-align : bottom;
+    height : 1px;
+}
+.siteTitle {
+    text-align: center;
+    font-style: oblique;
+    color: forestgreen;
+
+}
+
+.border {
+    border: 10px black;
+}
+
+.box {
+    align-content: center;
+
+    box-shadow: black;
+    border: 10px black;
+}
+
+
+.trash{
+    background-image: url("../images/node_modules/bootstrap-icons/icons/trash-fill.svg");
+    float: right;
+}
+
+.pencil{
+    background-image: url("../images/node_modules/bootstrap-icons/icons/pencil.svg");
+    float: right;
+}
+
+.right-align {
+    float: right;
+}
+.no-wrap{
+    white-space: nowrap;
+}
+.hidden{
+    visibility: hidden;
+}
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: url("../images/Spring.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+nav
+{
+    overflow: auto;
+}
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: mediumseagreen;
+    font-style: normal;
+}
+
+.hero-title{
+    font-family: 'Candara', cursive;
+    font-size: 50px;
+}
