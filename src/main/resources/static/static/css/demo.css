@@ -81,6 +81,11 @@ nav
 {
     overflow: auto;
 }
+
+.current-page {
+    font-weight: bold;
+    color: forestgreen;
+}
 /* Place text in the middle of the image */
 .hero-text {
     text-align: center;

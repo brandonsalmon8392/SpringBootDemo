@@ -30,7 +30,7 @@
                 <a class="nav-link" href="/findall">Employees</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/input">Registration</a>
+                <a class="nav-link nav-current-page" href="/input">Registration</a>
             </li>
         </ul>
         <form class="form-inline" action="/searchfirst">
@@ -39,30 +39,33 @@
         </form>
     </div>
 </nav>
+<br>
+<br>
+<div style="alignment: center" class="container">
+    <h2 style="alignment: center">Edit Employee</h2>
+    <form action="/edit">
+        <div class="form-group col-xs-3">
+            <label>First Name</label>
+            <input type="text" name="fName" th:value="${employee.firstName}" size="20"/>
+        </div>
+        <div class="form-group col-xs-3">
+            <label>Last Name</label>
+            <input type="text" name="lName" th:value="${employee.lastName}" size="20"/>
+        </div>
+        <div class="form-group col-xs-3">
+            <label>Email</label>
+            <input type="text" name="email" th:value="${employee.email}" size="30"/>
+        </div>
 
-<h2>Edit Employee</h2>
+        <div class="form-group hidden">
+            <label>Id</label>
+            <input type="text" name="id" th:value="${employee.id}"/>
+        </div>
 
-<form action="/edit" class="form-center" method="get">
-    <div class="form-group form-center">
-        <label>First Name</label>
-        <input type="text" name="fName" th:value="${employee.firstName}" size="20"/>
-    </div>
-    <div class="form-group form-center">
-        <label>Last Name</label>
-        <input type="text" name="lName" th:value="${employee.lastName}" size="20"/>
-    </div>
-    <div class="form-group form-center">
-        <label>Email</label>
-        <input type="text" name="email" th:value="${employee.email}" size="30"/>
-    </div>
-    <div class="form-group hidden">
-        <label>Id</label>
-        <input type="text" name="id" th:value="${employee.id}"/>
-    </div>
+        <button type="submit" class="btn btn-primary btn-success">Update</button>
 
-    <button type="submit" class="btn btn-primary">Update</button>
-
-</form>
+    </form>
+</div>
 
 </body>
 </html>

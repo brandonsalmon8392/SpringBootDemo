@@ -47,6 +47,8 @@
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Email</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -55,6 +57,23 @@
         <td th:text="${employee.firstName}"></td>
         <td th:text="${employee.lastName}"></td>
         <td th:text="${employee.email}"></td>
+        <td class="right-align" >
+            <form action="/remove" method="get">
+                <label>
+                    <input style="display: none" class="hidden" type="submit" name="id" th:value="${employee.id}" size="0">
+                    <svg class = "trash" width="1em" height="1em">...</svg>
+                </label>
+            </form>
+        </td>
+        <td class="right-align" >
+            <form action="/findEmp" method="get">
+                <label>
+                    <input style="display: none" class="hidden" type="submit" name="id" th:value="${employee.id}" size="0">
+                    <svg class = "pencil" width="1em" height="1em">...</svg>
+                </label>
+            </form>
+        </td>
+
     </tr>
     </tbody>
 </table>
