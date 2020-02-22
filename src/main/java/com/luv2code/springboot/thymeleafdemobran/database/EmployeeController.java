@@ -22,6 +22,11 @@ public class EmployeeController {
         theModel.addAttribute("employees", repo.findAll());
         return "employees";
     }
+    @GetMapping("/hello")
+    public String hello(Model theModel) {
+        theModel.addAttribute("employees", repo.findAll());
+        return "hello";
+    }
     @GetMapping("/manage")
     public String manage(Model theModel) {
         theModel.addAttribute("employees", repo.findAll());
@@ -42,9 +47,9 @@ public class EmployeeController {
 
     @GetMapping("/create")
     public String addEmployee(Model theModel, @RequestParam String fName, @RequestParam String lName, @RequestParam String email) {
-        long newId = rand.nextInt(1000000);
-        while(newId < 0 && newId > 1000000) {
-            newId = rand.nextInt(1000000);
+        long newId = rand.nextInt(5000);
+        while(newId < 0 && newId > 5000) {
+            newId = rand.nextInt(5000);
         }
         Employee newEmployee = new Employee(newId, fName, lName, email);
 
@@ -57,7 +62,7 @@ public class EmployeeController {
     @Transactional
     public String removeEmployee(@RequestParam long id) {
         repo.deleteEmployeeById(id);
-        return "redirect:/findall";
+        return "redirect:/manage";
     }
 
     @GetMapping("/edit")

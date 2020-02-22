@@ -9,11 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class DemoController {
 
-    @GetMapping("/hello")
-    public String sayHello(Model themodel) {
-        themodel.addAttribute("theDate", "02-18-2020");
-        return "hello";
-    }
+
     @RequestMapping("/tada")
     public String tadaShow() {
         return "tada";

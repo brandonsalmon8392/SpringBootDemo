@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light border navbar-fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light border fixed-top">
     <a class="navbar-brand" href="/">Spring Boot Demo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -46,11 +46,11 @@
         </form>
         <div >
             <form th:if="${#authorization.expression('hasRole(''USER'')')}" class="form-inline" th:action="@{/logout}" method="post">
-                <p class="nav-text">Logged in as USER</p>
+                <p class="nav-text pad-login-message">Logged in as USER</p>
                 <button class="button btn-danger" type="submit">Logout</button>
             </form>
             <form th:if="${#authorization.expression('hasRole(''ADMIN'')')}" class="form-inline" th:action="@{/logout}" method="post">
-                <p class="nav-text">Logged in as ADMIN  </p>
+                <p class="nav-text pad-login-message">Logged in as ADMIN  </p>
                 <button class="button btn-danger" type="submit">Logout</button>
             </form>
             <form th:unless="${#authorization.expression('hasRole(''USER'')') or #authorization.expression('hasRole(''ADMIN'')')}" class="form-inline" action="/login">

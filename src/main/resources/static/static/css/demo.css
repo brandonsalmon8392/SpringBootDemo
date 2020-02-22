@@ -61,6 +61,14 @@ li {
 .right-align {
     float: right;
 }
+.pad-login-message {
+    margin-right: 10px;
+}
+.pad-card{
+    margin-bottom: 40px;
+    margin-left: 60px;
+    margin-top: 40px;
+}
 .no-wrap{
     white-space: nowrap;
 }
@@ -77,14 +85,12 @@ li {
     background-repeat: no-repeat;
     position: relative;
 }
-nav
-{
-    overflow: auto;
-}
+
 .nav-text{
     font-size: small;
     height: 50%;
 }
+
 .current-page {
     font-weight: bold;
     color: forestgreen;
