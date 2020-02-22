@@ -81,7 +81,10 @@ nav
 {
     overflow: auto;
 }
-
+.nav-text{
+    font-size: small;
+    height: 50%;
+}
 .current-page {
     font-weight: bold;
     color: forestgreen;

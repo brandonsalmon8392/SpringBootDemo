@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
     <link rel="stylesheet" th:href="@{/static/css/demo.css}"/>
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
-
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border navbar-fixed-top">
@@ -21,7 +20,7 @@
                 <a class="nav-link" href="/hello">Hello<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link current-page" href="/tada">Tada!</a>
+                <a class="nav-link" href="/tada">Tada!</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/page3">Page 3</a>
@@ -36,7 +35,7 @@
             </div>
             <div sec:authorize="hasRole('ADMIN')">
                 <li class="nav-item">
-                    <a class="nav-link" href="/manage">Manage</a>
+                    <a class="nav-link current-page" href="/manage">Manage</a>
                 </li>
             </div>
         </ul>
@@ -57,16 +56,46 @@
                 <button class="button btn-success" type="submit">Login</button>
             </form>
         </div>
-
     </div>
 </nav>
-<div class ="container">
-<p class="tada"> TADAAAAAA! </p>
-</div>
+<table class="table table-striped table-hover">
+    <caption align="top">Current Employees</caption>
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.firstName}"></td>
+        <td th:text="${employee.lastName}"></td>
+        <td th:text="${employee.email}"></td>
+        <td class="right-align" >
+            <form action="/remove" method="get">
+                <label>
+                    <input style="display: none" class="hidden" type="submit" name="id" th:value="${employee.id}" size="0">
+                    <svg class = "trash" width="1em" height="1em">...</svg>
+                </label>
+            </form>
+        </td>
+        <td class="right-align" >
+            <form action="/findEmp" method="get">
+                <label>
+                    <input style="display: none" class="hidden" type="submit" name="id" th:value="${employee.id}" size="0">
+                    <svg class = "pencil" width="1em" height="1em">...</svg>
+                </label>
+            </form>
+        </td>
 
-<div class="foot">
-    Some other content you want kept to the bottom
-    <div>this is in a div</div>
-</div>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" lang="en">
+<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Spring Demo</title>
@@ -26,17 +26,37 @@
             <li class="nav-item">
                 <a class="nav-link current-page" href="/page3">Page 3</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="hasRole('USER') or hasRole('ADMIN')">
                 <a class="nav-link" href="/findall">Employees</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/input">Registration</a>
-            </li>
+            <div sec:authorize="hasRole('ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" href="/input">Registration</a>
+                </li>
+            </div>
+            <div sec:authorize="hasRole('ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" href="/manage">Manage</a>
+                </li>
+            </div>
         </ul>
-        <form class="form-inline" action="/searchfirst">
+        <form class="form-inline" sec:authorize="hasRole('USER') or hasRole('ADMIN')" action="/searchfirst">
             <input class="form-control" type="search" placeholder="Find an Employee" aria-label="Search" name="name">
             <button class="btn btn-light" type="submit"> Search</button>
         </form>
+        <div >
+            <form th:if="${#authorization.expression('hasRole(''USER'')')}" class="form-inline" th:action="@{/logout}" method="post">
+                <p class="nav-text">Logged in as USER</p>
+                <button class="button btn-danger" type="submit">Logout</button>
+            </form>
+            <form th:if="${#authorization.expression('hasRole(''ADMIN'')')}" class="form-inline" th:action="@{/logout}" method="post">
+                <p class="nav-text">Logged in as ADMIN  </p>
+                <button class="button btn-danger" type="submit">Logout</button>
+            </form>
+            <form th:unless="${#authorization.expression('hasRole(''USER'')') or #authorization.expression('hasRole(''ADMIN'')')}" class="form-inline" action="/login">
+                <button class="button btn-success" type="submit">Login</button>
+            </form>
+        </div>
     </div>
 </nav>
 <h2>This is the 3rd page</h2>

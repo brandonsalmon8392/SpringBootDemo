@@ -22,6 +22,10 @@ public class EmployeeController {
         theModel.addAttribute("employees", repo.findAll());
         return "employees";
     }
+    @GetMapping("/manage")
+    public String manage(Model theModel) {
+        theModel.addAttribute("employees", repo.findAll());
+        return "manage";}
 
     @GetMapping("/findEmp")
     public String findEmployee(Model theModel, @RequestParam long id) {
@@ -62,7 +66,7 @@ public class EmployeeController {
     public String editEmployee(@RequestParam String fName, @RequestParam String lName, @RequestParam String email, @RequestParam long id) {
         repo.setEmployeeInfoById(fName, lName, email, id);
 
-        return "redirect:/findall";
+        return "redirect:/manage";
     }
 
 }
