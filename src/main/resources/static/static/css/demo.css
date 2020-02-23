@@ -9,7 +9,9 @@
     color: aqua;
     font-style: italic;
 }
-
+.nav-position{
+    position: relative;
+}
 .form-center{
     alignment: center;
 }

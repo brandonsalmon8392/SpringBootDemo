@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
     <link rel="stylesheet" th:href="@{/static/css/demo.css}"/>
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
-
 </head>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border fixed-top">
     <a class="navbar-brand" href="/">Spring Boot Demo</a>
@@ -59,7 +59,8 @@
         </form>
     </div>
 </nav>
-<h2 style="float: bottom">The team<br> </h2>
+<br/>
+<h2 style="margin-left: 40px; margin-top: 50px" >The team<br> </h2>
 
 <div class="row">
 <div th:each="employee : ${employees}">
@@ -68,7 +69,9 @@
     <img src="https://api.adorable.io/avatars/" th:src="|https://api.adorable.io/avatars/${employee.id}|" class="card-img-top" alt="Avatar">
     <div class="card-body">
         <h5 class="card-title" th:text="${employee.firstName}"></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text">All hail Cthulhu. ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn
+            ph'nglui mglw'nafh Cthugha Fomalhaut n'gha-ghaa naf'lthagn
+        </p>
     </div>
 </div>
 </div>
