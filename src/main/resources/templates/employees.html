@@ -64,17 +64,17 @@
     <caption align="top">Current Employees</caption>
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Email</th>
+            <th scope="col" style="text-align: left; width: 120px">Id</th>
+            <th scope="col" style="text-align: left;width: 100px">First</th>
+            <th scope="col"style="text-align: left;width: 150px">Last</th>
+            <th scope="col"style="text-align: left;width: 300px">Email</th>
         </tr>
     </thead>
     <tbody>
     <tr th:each="employee : ${employees}">
-        <td th:text="${employee.id}" style="text-align: left; width: 180px"></td>
-        <td th:text="${employee.firstName}" style="text-align: left;width: 290px"></td>
-        <td th:text="${employee.lastName}" style="text-align: left;width: 270px"></td>
+        <td th:text="${employee.id}" style="text-align: left; width: 120px"></td>
+        <td th:text="${employee.firstName}" style="text-align: left;width: 100px"></td>
+        <td th:text="${employee.lastName}" style="text-align: left;width: 150px"></td>
         <td th:text="${employee.email}" style="text-align: left;width: 300px"></td>
     </tr>
     </tbody>

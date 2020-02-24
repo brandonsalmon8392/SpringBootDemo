@@ -9,6 +9,9 @@
     color: aqua;
     font-style: italic;
 }
+.table-spacing-manage{
+    text-align: left; width: 200px
+}
 .nav-position{
     position: relative;
 }
