@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Spring Demo</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
     <link rel="stylesheet" th:href="@{/static/css/demo.css}"/>
-    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon"/>
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border fixed-top">
     <a class="navbar-brand" href="/">Spring Boot Demo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar"
+            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -45,36 +48,46 @@
             <button class="btn btn-light" type="submit"> Search</button>
         </form>
     </div>
-    <div >
-        <form th:if="${#authorization.expression('hasRole(''USER'')')}" class="form-inline" th:action="@{/logout}" method="post">
+    <div>
+        <form th:if="${#authorization.expression('hasRole(''USER'')')}" class="form-inline" th:action="@{/logout}"
+              method="post">
             <p class="nav-text pad-login-message">Logged in as USER</p>
             <button class="button btn-danger" type="submit">Logout</button>
         </form>
-        <form th:if="${#authorization.expression('hasRole(''ADMIN'')')}" class="form-inline" th:action="@{/logout}" method="post">
-            <p class="nav-text pad-login-message">Logged in as ADMIN  </p>
+        <form th:if="${#authorization.expression('hasRole(''ADMIN'')')}" class="form-inline" th:action="@{/logout}"
+              method="post">
+            <p class="nav-text pad-login-message">Logged in as ADMIN </p>
             <button class="button btn-danger" type="submit">Logout</button>
         </form>
-        <form th:unless="${#authorization.expression('hasRole(''USER'')') or #authorization.expression('hasRole(''ADMIN'')')}" class="form-inline" action="/login">
+        <form th:unless="${#authorization.expression('hasRole(''USER'')') or #authorization.expression('hasRole(''ADMIN'')')}"
+              class="form-inline" action="/login">
             <button class="button btn-success" type="submit">Login</button>
         </form>
     </div>
 </nav>
 <br/>
-<h2 style="margin-left: 40px; margin-top: 50px" >The team<br> </h2>
+<h2 style="margin-left: 40px; margin-top: 50px">The team<br></h2>
+<div id="container">
+    <div id="main">
+        <div class="row">
+            <div th:each="employee : ${employees}">
 
-<div class="row">
-<div th:each="employee : ${employees}">
-
-<div class="card col-10 pad-card" style="width: 18rem;">
-    <img src="https://api.adorable.io/avatars/" th:src="|https://api.adorable.io/avatars/${employee.id}|" class="card-img-top" alt="Avatar">
-    <div class="card-body">
-        <h5 class="card-title" th:text="${employee.firstName}"></h5>
-        <p class="card-text">All hail Cthulhu. ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn
-            ph'nglui mglw'nafh Cthugha Fomalhaut n'gha-ghaa naf'lthagn
-        </p>
+                <div class="card col-10 pad-card" style="width: 18rem;">
+                    <img src="https://api.adorable.io/avatars/"
+                         th:src="|https://api.adorable.io/avatars/${employee.id}|" class="card-img-top" alt="Avatar">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${employee.firstName}"></h5>
+                        <p class="card-text">All hail Cthulhu. ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn
+                            ph'nglui mglw'nafh Cthugha Fomalhaut n'gha-ghaa naf'lthagn
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-</div>
+<div class="foot">
+    <p class="hero-text" style="font-size: 12px">Spring Demo - Brandon Salmon 2020</p>
 </div>
 </body>
 </html>

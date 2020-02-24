@@ -25,10 +25,36 @@
 li {
   display: inline;
 }
+tr {
+    display: table;
+    width: 100%;
+}
+h3 {
+    position: relative;
+    animation: mymove 5s infinite;
+    animation-direction: alternate;
 
+}
+@keyframes mymove {
+    from {left: 40px}
+    to {left: 500px}
+
+}
+html, body {
+    height: 100%;
+}
+#container {
+    min-height: 100%;
+}
+#main{
+    overflow: auto;
+    padding-bottom: 30px;
+}
 .foot {
-    display : table-row;
+    position: relative;
     vertical-align : bottom;
+    margin-top: -55px;
+
     height : 1px;
 }
 .siteTitle {
